@@ -26,11 +26,12 @@ class NavBar extends Component {
     return (
       <Menu inverted fixed="top">
         <Container>
-          <Menu.Item as={NavLink} to='/' header>
+          <Menu.Item as={Link} to='/' header>
             <img src="/assets/logo.png" alt="logo" />
             Re-vents
           </Menu.Item>
           <Menu.Item as={NavLink} to='/events' name="Events" />
+          <Menu.Item as={NavLink} to="/test" name="Test" />
           { authenticated &&
           <Menu.Item as={NavLink} to='/people' name="People" />}
           { authenticated &&
