@@ -8,7 +8,7 @@ const SignedOutMenu = ({signIn}) => {
       <Button
         basic
         inverted
-        content="Sign Out"
+        content="Register"
         style={{ marginLeft: "0.5em" }}
       />
     </Menu.Item>
