@@ -3,11 +3,20 @@ import{ connect } from 'react-redux'
 import { Grid, Button } from 'semantic-ui-react';
 import EventList from '../EventList/EventList';
 import EventForm from '../EventForm/EventForm';
+import { createEvent, deleteEvent, updateEvent } from '../eventActions'
 import cuid from 'cuid';
 
 const mapState = (state) => ({
   events: state.events
 })
+
+const actions = {
+  createEvent,
+  updateEvent,
+  deleteEvent
+}
+
+
 
 class EventDashboard extends Component {
   state = {
@@ -29,18 +38,12 @@ class EventDashboard extends Component {
   };
    
   handleUpdateEvent = (updatedEvent) => {
+    this.props.updateEvent(updateEvent)
     this.setState({
-      events: this.state.events.map(event => {
-        if (event.id === updatedEvent.id){
-          return Object.assign({}, updatedEvent);
-        } else {
-          return event
-        }
-      }),
       isOpen: false,
       selectedEvent: null
-    })
-  }
+    });
+  };
 
   handleOpenEvent = (eventToUpdate) => () => {
     this.setState({
@@ -52,18 +55,14 @@ class EventDashboard extends Component {
   handleCreateEvent = (newEvent) => {
     newEvent.id = cuid();
     newEvent.hostPhotoURL = '/assets/user.png';
-    const updatedEvents = [...this.state.events, newEvent];
+    this.props.createEvent(newEvent);
     this.setState({
-      events: updatedEvents,
       isOpen: false
     })
   }
 
   handleDeleteEvent = (eventId) => () => {
-    const updatedEvents = this.state.events.filter(e => e.id !== eventId);
-    this.setState({
-      events: updatedEvents
-    })
+    this.props.deleteEvent(eventId);
   } 
 
   render() {
@@ -84,4 +83,4 @@ class EventDashboard extends Component {
   }
 }
 
-export default connect(mapState)(EventDashboard);
+export default connect(mapState, actions)(EventDashboard);
