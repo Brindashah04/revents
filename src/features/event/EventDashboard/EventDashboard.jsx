@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import{ connect } from 'react-redux'
-import { Grid, Button } from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
 import EventList from '../EventList/EventList';
-import EventForm from '../EventForm/EventForm';
-import { createEvent, deleteEvent, updateEvent } from '../eventActions'
-import cuid from 'cuid';
+import { createEvent, deleteEvent } from '../eventActions'
 
 const mapState = (state) => ({
   events: state.events
