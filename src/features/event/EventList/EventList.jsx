@@ -7,7 +7,7 @@ import EventListItem from './EventListItem'
     return (
       <div>
         {events.map((event) => (
-          <EventListItem key={event.id} event={event}  deleteEvent={deleteEvent}/>
+          <EventListItem key={event.id} event={event} deleteEvent={deleteEvent}/>
         ))}
         
       </div>
