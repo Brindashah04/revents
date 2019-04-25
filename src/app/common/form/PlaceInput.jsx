@@ -15,7 +15,7 @@ class PlaceInput extends Component {
     scriptLoaded: false
   };
 
-  handleScriptLoad = () => this.setState({ scripLoaded: true });
+  handleScriptLoad = () => this.setState({ scriptLoaded: true });
 
   render() {
     const {
@@ -32,7 +32,7 @@ class PlaceInput extends Component {
           url="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4JL29As240BW9LjKEDWavlXE3aNRT4yg&libraries=places"
           onLoad={this.handleScriptLoad}
         />
-        {this.state.scripLoaded && (
+        {this.state.scriptLoaded && (
           <PlacesAutocomplete
             inputProps={{ ...input, placeholder }}
             options={options}

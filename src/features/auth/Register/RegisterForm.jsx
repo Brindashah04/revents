@@ -55,4 +55,4 @@ const RegisterForm = ({handleSubmit, registerUser, error, invalid, submitting}) 
   );
 };
 
-export default connect(null,actions)(reduxForm({form: 'registerForm'})(RegisterForm));
+export default connect(null,actions)(reduxForm({form: 'registerForm',validate})(RegisterForm));
